@@ -4,13 +4,38 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 public class FactoryConnection {
 	
-	public FactoryConnection() {}
+	private String jdbcUrl;
 	
-	public Connection openConnection(String usuario, String senha) throws SQLException {
+	private String user;
+	
+	private String password;
+	
+	private DataSource dataSource;
+	
+	public FactoryConnection() {
+		this.jdbcUrl = "jdbc:postgresql://localhost/market?useTimezone=true&serverTimezone=UTC";
+		this.user = "postgres";
+		this.password = "2501";
+		
+		ComboPooledDataSource cSource = new ComboPooledDataSource();
+		cSource.setJdbcUrl(jdbcUrl);
+		cSource.setUser(user);
+		cSource.setPassword(password);
+		
+		cSource.setMaxPoolSize(18);
+		
+		this.dataSource = cSource;
+	}
+	
+	public Connection openConnection() throws SQLException {
 		System.out.println("Preparando para abrir comunicação com o banco de dados...");
-		return DriverManager.getConnection("jdbc:postgresql://localhost/market?useTimezone=true&serverTimezone=UTC",  usuario, senha);
+		return this.dataSource.getConnection();
 	}
 	
 	public void closeConnection(Connection conn) throws SQLException {
