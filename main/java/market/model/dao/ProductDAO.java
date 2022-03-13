@@ -105,7 +105,7 @@ public class ProductDAO {
 			e.printStackTrace();
 			return false;
 		}
-		System.out.println("Produto criado.");
+		System.out.println("Produto atualizado.");
 		return true;
 	}
 	

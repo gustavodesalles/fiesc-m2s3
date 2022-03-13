@@ -181,6 +181,15 @@ public class ConnectionBd {
 //			List<Category> categories = categoryDAO.list();
 //			
 //			List<Example> examples = exampleDAO.list();
+//			//exampleDAO.create("yellow", 42);
+//			//exampleDAO.create("ikb", 45);
+//			
+//			//exampleDAO.delete(2);
+//			
+//			exampleDAO.delete(0);
+//			
+//			Example example = new Example("klein blue", 3);
+//			exampleDAO.update(example, 4);
 //			
 //			System.out.println(productDAO.getByName("tv"));
 //			
@@ -198,7 +207,7 @@ public class ConnectionBd {
 //		} catch (SQLException e) {
 //			System.out.println("[ERROR]: Erro ao se conectar ao banco de dados. Causado por " + e.getMessage());
 //		}
-		
+//		
 	}
 
 	

@@ -11,6 +11,11 @@ public class Example {
 		this.fav_number = fav_number;
 	}
 	
+	public Example(String fav_color, int fav_number) {
+		this.fav_color = fav_color;
+		this.fav_number = fav_number;
+	}
+
 	public long getId() {
 		return id;
 	}
